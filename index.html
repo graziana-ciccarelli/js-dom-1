@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>js-dom</title>
     <style>
-        #lampadina{
+        #lampadina {
             width: 100px;
             height: auto;
         }
     </style>
 </head>
 <body>
-    <img id="lampadina" src="./img/white_lamp.png" alt="Lampadina spenta">
+    <img id="lampadina" src="./img/white_lamp.png" alt="Lampadina spenta" />
     <button id="toggleButton">Accendi</button>
-
 
     <script>
         const lampadina = document.getElementById('lampadina');
         const button = document.getElementById('toggleButton');
 
-        button.addEventListener('click', () =>{
-            if(button.innerText.includes('Accendi')){
+        button.addEventListener('click', () => {
+            const isOn = button.textContent.includes('Spegni');
+            if (isOn) {
+                // Spegni
+                lampadina.src = 'img/white_lamp.png';
+                lampadina.alt = 'Lampadina spenta';
+                button.textContent = 'Accendi';
+            } else {
+                // Accendi
                 lampadina.src = 'img/yellow_lamp.png';
-                button.innerText = 'Spegni';
-            }else{
-                    lampadina.src = 'img/white_lamp.png';
-                    button.innerText = 'Accendi';
+                lampadina.alt = 'Lampadina accesa';
+                button.textContent = 'Spegni';
             }
         });
-
-      
-
-
-
-
-
-
-
-
-
     </script>
-
-
-    
 </body>
 </html>
