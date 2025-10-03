@@ -6,8 +6,33 @@
     <title>js-dom</title>
     <style>
         #lampadina {
-            width: 100px;
+          
+            width: 200px; 
             height: auto;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        #toggleButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            background-color: green;
+            color: white;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        body {
+            
+            background-color: black; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -18,19 +43,25 @@
     <script>
         const lampadina = document.getElementById('lampadina');
         const button = document.getElementById('toggleButton');
+        const body = document.body;
 
         button.addEventListener('click', () => {
             const isOn = button.textContent.includes('Spegni');
+
             if (isOn) {
-                // Spegni
-                lampadina.src = 'img/white_lamp.png';
+                // SPEGNI
+                lampadina.src = './img/white_lamp.png';
                 lampadina.alt = 'Lampadina spenta';
                 button.textContent = 'Accendi';
+                button.style.backgroundColor = 'green';
+                body.style.backgroundColor = 'black'; 
             } else {
-                // Accendi
-                lampadina.src = 'img/yellow_lamp.png';
+                // ACCENDI
+                lampadina.src = './img/yellow_lamp.png';
                 lampadina.alt = 'Lampadina accesa';
                 button.textContent = 'Spegni';
+                button.style.backgroundColor = 'red';
+                body.style.backgroundColor = 'skyblue'; 
             }
         });
     </script>
